@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:on="http://www.openntf.org/domino/xsp"
+	xmlns:xe="http://www.ibm.com/xsp/coreex" xmlns:ui="http://www.ibm.com/xsp/custom">
+	<xp:this.afterPageLoad><![CDATA[#{javascript:var title = "Account" + @If(dsAccount.getItemValue("AccountName").isEmpty(),""," > " + dsAccount.getItemValue("AccountName").get(0));
+view.setPageTitle(title)}]]></xp:this.afterPageLoad>
+	<ui:ccLayout_SinglePage>
+		<xp:this.facets>
+			<xp:panel xp:key="buttonArea">
+				<xp:button value="Edit" id="btnEdit">
+
+					<xp:this.rendered><![CDATA[#{javascript:importPackage(com.gw.application);
+AppUtils.isAuthor(dsAccount.getDocument()) && !dsAccount.isEditable();}]]></xp:this.rendered>
+					<xp:eventHandler event="onclick" submit="true"
+						refreshMode="complete">
+						<xp:this.action>
+							<xp:changeDocumentMode mode="edit" var="dsAccount">
+							</xp:changeDocumentMode>
+						</xp:this.action>
+					</xp:eventHandler>
+				</xp:button>
+				<xp:button value="Save" id="btnSave"
+					rendered="#{javascript:dsAccount.isEditable()}">
+					<xp:eventHandler event="onclick" submit="true"
+						refreshMode="complete" immediate="false" save="true">
+					</xp:eventHandler>
+				</xp:button>
+				<xp:button value="Close" id="btnCancel">
+
+					<xp:eventHandler event="onclick" submit="true"
+						refreshMode="norefresh" save="false" immediate="true">
+						<xp:this.action>
+							<xp:openPage name="/accounts.xsp"></xp:openPage>
+						</xp:this.action>
+					</xp:eventHandler>
+				</xp:button>
+			</xp:panel>
+			<xp:panel xp:key="messageArea">
+				<xp:messages id="messages1"></xp:messages>
+			</xp:panel>
+			<xp:panel xp:key="contentArea">
+				<xp:panel styleClass="infoKader">
+					<xp:table>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Account name" id="accountName_Label1"
+									for="accountName1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{dsAccount.AccountName}" id="accountName1">
+									<xp:this.validators>
+										<xp:validateRequired>
+											<xp:this.message><![CDATA[#{javascript:getLabelFor(this).getValue() + " is required."}]]></xp:this.message>
+										</xp:validateRequired>
+									</xp:this.validators>
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Address" id="accountAddress_Label1"
+									for="accountAddress1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+
+								<xp:inputTextarea id="inputTextarea1"
+									value="#{dsAccount.AccountAddress}">
+								</xp:inputTextarea>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Postal code" id="accountPostalCode_Label1"
+									for="accountPostalCode1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{dsAccount.AccountPostalCode}"
+									id="accountPostalCode1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="City" id="accountCity_Label1" for="accountCity1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{dsAccount.AccountCity}" id="accountCity1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Region" id="accountRegion_Label1" for="accountRegion1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{dsAccount.AccountRegion}"
+									id="accountRegion1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Country" id="accountCountry_Label1"
+									for="accountCountry1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xe:djComboBox id="accountCountry1" value="#{dsAccount.AccountCountry}"
+									ignoreCase="true" validatorExt="return true;">
+									<xe:this.validators>
+										<xp:validateRequired>
+											<xp:this.message><![CDATA[#{javascript:getLabelFor(this).getValue() + " is required."}]]></xp:this.message>
+										</xp:validateRequired>
+									</xe:this.validators>
+									<xp:selectItem itemLabel="">
+									</xp:selectItem>
+									<xp:selectItems>
+										<xp:this.value><![CDATA[${javascript:
+						var values = configMgr.getTextList("Keywords&&Country List");
+						return values;}]]></xp:this.value>
+									</xp:selectItems>
+								</xe:djComboBox>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Phone" id="accountPhone_Label1" for="accountPhone1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{dsAccount.AccountPhone}" id="accountPhone1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Fax" id="accountFax_Label1" for="accountFax1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{dsAccount.AccountFax}" id="accountFax1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Mail" id="accountMail_Label1" for="accountMail1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{dsAccount.AccountMail}" id="accountMail1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Site" id="accountSite_Label1" for="accountSite1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{dsAccount.AccountSite}" id="accountSite1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+					</xp:table>
+				</xp:panel>
+				<xp:panel styleClass="infoKader">
+					<xp:table>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="VAT number" id="accountVAT_Label1"
+									for="accountVAT1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{dsAccount.AccountVAT}" id="accountVAT1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Sector" id="accountSector_Label1" for="accountSector1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xe:djComboBox id="accountSector1" value="#{dsAccount.AccountSector}"
+									ignoreCase="true" validatorExt="return true;">
+									<xp:selectItem itemLabel="">
+									</xp:selectItem>
+									<xp:selectItems>
+										<xp:this.value><![CDATA[${javascript:
+						var values = configMgr.getTextList("Keywords&&Sector List");
+						return values;}]]></xp:this.value>
+									</xp:selectItems>
+								</xe:djComboBox>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Account type" id="accountType_Label1"
+									for="accountType1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xe:djComboBox id="accountType1" value="#{dsAccount.AccountType}"
+									ignoreCase="true" validatorExt="return true;">
+									<xp:selectItem itemLabel="">
+									</xp:selectItem>
+									<xp:selectItems>
+										<xp:this.value><![CDATA[${javascript:
+						var values = configMgr.getTextList("Keywords&&Account Types");
+						return values;}]]></xp:this.value>
+									</xp:selectItems>
+								</xe:djComboBox>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Account Manager" id="accountAccountManager_Label1"
+									for="accountAccountManager1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+							<xp:text escape="true" id="dspNamePicker1"
+								value="#{javascript:@Name('[Abbreviate]', dsAccount.getItemValue('AccountAccountManager'))}"
+								rendered="#{javascript:!dsAccount.isEditable()}">
+							</xp:text>
+							<xe:namePicker id="namePicker1" for="accountAccountManager1">
+									<xe:this.dataProvider>
+										<xe:dominoNABNamePicker addressBookSel="all"
+											groups="false" nameList="peopleByLastName" people="true">
+										</xe:dominoNABNamePicker>
+									</xe:this.dataProvider>
+								</xe:namePicker>
+							<xe:djextNameTextBox
+								id="accountAccountManager1"
+								value="#{dsAccount.AccountAccountManager}"
+								rendered="#{javascript:dsAccount.isEditable()}"
+								defaultValue="${javascript:@UserName()}">
+								<xe:this.converter>
+									<xp:customConverter>
+										<xp:this.getAsObject><![CDATA[#{javascript:return @Name("[Canonicalize]",@Trim(@Explode(value, ",")));}]]></xp:this.getAsObject>
+										<xp:this.getAsString><![CDATA[#{javascript:@Implode(@Name("[Abbreviate]", value), ",")}]]></xp:this.getAsString>
+									</xp:customConverter>
+								</xe:this.converter>
+							</xe:djextNameTextBox>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Account status:" id="accountStatus_Label1"
+									for="accountStatus1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:checkBox text="Active" id="accountStatus1"
+									value="#{dsAccount.AccountStatus}" defaultChecked="true"
+									checkedValue="1" uncheckedValue="0"
+									rendered="#{javascript:dsAccount.isEditable()}">
+								</xp:checkBox>
+								<xp:text escape="true" id="dspAccountStatus1"
+									rendered="#{javascript:!dsAccount.isEditable()}">
+									<xp:this.value><![CDATA[#{dsAccount.AccountStatus=="1"?"Active":"Not Active"}]]></xp:this.value>
+								</xp:text>
+							</xp:td>
+						</xp:tr>
+
+					</xp:table>
+				</xp:panel>
+				<xp:label value="Comments" id="accountComments_Label1" for="accountComments1">
+				</xp:label>
+				<xp:inputRichText value="#{dsAccount.AccountComments}"
+					id="accountComments1">
+				</xp:inputRichText>
+			</xp:panel>
+		</xp:this.facets>
+	</ui:ccLayout_SinglePage>
+	<xp:this.data>
+		<xp:dominoDocument var="dsAccount" computeWithForm="onsave"
+			formName="frmAccount">
+		</xp:dominoDocument>
+	</xp:this.data>
+
+
+
+
+
+
+
+</xp:view>

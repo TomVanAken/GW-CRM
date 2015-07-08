@@ -1,0 +1,25 @@
+/*** BANNER OVERRIDES ***/
+.lotusui30 .lotusBanner .lotusRightCorner {
+   background-image: url('headerBackground.png');
+    border-bottom: 1px solid #1a96c6;
+    border-top: 1px solid #3a3a3a;
+    overflow: hidden;
+}
+
+.lotusui30 .lotusBanner ul.lotusInlinelist li a, .lotusui30 .lotusBanner ul.lotusInlinelist li a:hover, .lotusui30 .lotusBanner ul.lotusInlinelist li a:focus, .lotusui30 .lotusBanner ul.lotusInlinelist li a:active, .lotusui30 .lotusBanner ul.lotusInlinelist li.lotusHover a {
+    background:transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    text-shadow: none;
+    color: black;
+}
+
+
+/*** FORMS - FIELDS AND LABELS ***/
+.xspInputFieldEditBox {
+	width: 300px;
+}
+
+.dijitTextBox, .xspInputFieldTextArea {
+	width: 302px;
+}

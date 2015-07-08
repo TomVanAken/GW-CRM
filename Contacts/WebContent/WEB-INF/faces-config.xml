@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+  <!-- Managed bean -->
+  <managed-bean>
+    <managed-bean-name>configMgr</managed-bean-name>
+    <managed-bean-class>com.gw.common.ConfigurationManager</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
+    <managed-bean-name>xspOpenLog</managed-bean-name>
+    <managed-bean-class>com.gw.common.log.XspOpenLog</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+
+
+<!--  Converters -->
+<converter>
+    <converter-id>nameConverter</converter-id>
+    <converter-class>common.gw.common.converters.NameConverter</converter-class>
+</converter>
+</faces-config>

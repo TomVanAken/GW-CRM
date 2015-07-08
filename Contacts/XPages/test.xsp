@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+
+	<xp:this.beforePageLoad><![CDATA[#{javascript:xspOpenLog.logEvent("test", this);}]]></xp:this.beforePageLoad>
+	<xp:this.resources>
+		<xp:dojoModulePath prefix="gridx" url="/gridx"></xp:dojoModulePath>
+	</xp:this.resources>
+	<xp:inputText id="inputText1"></xp:inputText>
+
+	<div id="gridX_Here" style="height:300px; width:300px;"></div>
+
+	<script>
+		require([ "gridx/Grid", "dojo/store/JsonRest",
+		"gridx/core/model/cache/Async", "dojo/domReady!" ],
+		function(Grid,JsonRest, Cache) {
+
+
+		var store = new Memory({ data: [ {id: 1, name: 'John', country:
+		'United States', things: 100}, {id: 2, name: 'Bill', country:
+		'Lithuania', things: 57}, {id: 3, name: 'Bob', country: 'China',
+		things: 123}, {id: 4, name: 'Jim', country: 'Germany', things:
+		154}, {id: 5, name: 'Tom', country: 'Brazil', things: 78} ] });
+
+		var columns = [ {id: 'name', field: 'name', name: 'Name', width:
+		'70px'}, {id: 'country', field: 'country', name: 'Country'},
+		{id: 'things', field: 'things', name: 'Things', width: '40px'}
+		];
+
+		grid = new Grid({ id: "my_gridX", cacheClass: Cache, store:
+		store, structure: columns });
+
+		//Put it into the DOM tree. grid.placeAt('gridX_Here');
+		grid.startup();
+
+		});
+	</script>
+
+</xp:view>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xe="http://www.ibm.com/xsp/coreex"
+	xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.afterPageLoad><![CDATA[#{javascript:view.setPageTitle("Accounts")}]]></xp:this.afterPageLoad>
+	<xc:ccLayout_SinglePage>
+		<xp:this.facets>
+			<xp:panel xp:key="buttonArea">
+				<xp:button value="New Account" id="btnNewAccount">
+					<xp:eventHandler event="onclick" submit="true"
+						refreshMode="norefresh" immediate="true">
+						<xp:this.action>
+							<xp:openPage name="/account.xsp"
+								target="newDocument">
+							</xp:openPage>
+						</xp:this.action>
+					</xp:eventHandler>
+				</xp:button>
+			</xp:panel>
+			<xp:viewPanel rows="30" id="viewPanel1"
+				xp:key="contentArea">
+				<xp:this.facets>
+					<xp:pager partialRefresh="true"
+						layout="Previous Group Next" xp:key="headerPager" id="pager1">
+					</xp:pager>
+				</xp:this.facets>
+				<xp:this.data>
+					<xp:dominoView var="view1" viewName="vwAccounts"></xp:dominoView>
+				</xp:this.data>
+				<xp:viewColumn columnName="AccountName" id="viewColumn1"
+					style="width:300px" displayAs="link" openDocAsReadonly="true">
+					<xp:viewColumnHeader value="Account Name"
+						id="viewColumnHeader1" sortable="true">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+				<xp:viewColumn id="viewColumn2" style="width:300px"
+					columnName="AccountSector">
+					<xp:viewColumnHeader id="viewColumnHeader2"
+						sortable="true" value="Sector">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+				<xp:viewColumn columnName="AccountType"
+					id="viewColumn3">
+					<xp:viewColumnHeader value="Type"
+						id="viewColumnHeader3" sortable="true">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+
+				<xp:viewColumn columnName="AccountStatus"
+					id="viewColumn4" displayAs="hidden">
+					<xp:this.iconSrc><![CDATA[#{javascript:"/.ibmxspres/domino/icons/" + (this.getValue()=="1"?"vwicn202.gif":"vwicn200.gif")}]]></xp:this.iconSrc>
+					<xp:viewColumnHeader value="Active"
+						id="viewColumnHeader4" sortable="true">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+				<xp:viewColumn columnName="$AccountManager"
+					id="viewColumn5" style="width:300px">
+					<xp:viewColumnHeader value="Account  manager"
+						id="viewColumnHeader5" sortable="true">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+			</xp:viewPanel>
+		</xp:this.facets>
+	</xc:ccLayout_SinglePage>
+</xp:view>

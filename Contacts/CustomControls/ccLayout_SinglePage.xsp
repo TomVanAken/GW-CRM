@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xe="http://www.ibm.com/xsp/coreex">
+
+
+	<xe:applicationLayout id="singlePageLayout">
+		<xe:this.facets>
+			<xe:navigator id="navigator1" xp:key="LeftColumn">
+				<xe:this.treeNodes>
+
+					
+
+					<xe:basicLeafNode href="/accounts.xsp"
+						label="Accounts">
+
+						<xe:this.selected><![CDATA[#{javascript:view.getPageName().indexOf("account") > -1}]]></xe:this.selected>
+					</xe:basicLeafNode>
+				</xe:this.treeNodes>
+			</xe:navigator>
+			<xp:callback facetName="facetRight" id="facetRight"
+				xp:key="RightColumn">
+			</xp:callback>
+
+		</xe:this.facets>
+		<xp:panel>
+			<xp:panel id="divButtons" styleClass="divButtons">
+				<xp:panel></xp:panel><xp:callback facetName="buttonArea" id="callback1"></xp:callback>
+			</xp:panel>
+			<xp:panel id="divMessages" styleClass="divMessages">
+				<xp:callback facetName="messageArea" id="callback2"></xp:callback>
+			</xp:panel>
+			<xp:panel id="divContent" styleClass="divContent">
+				<xp:callback facetName="contentArea" id="callback3"></xp:callback>
+			</xp:panel>
+		</xp:panel>
+		<xe:this.configuration>
+			<xe:oneuiApplication productLogo="/_Company+Logo"
+				legalText="2015 Group-Wave" productLogoAlt="Groupwave"
+				titleBarName="#{javascript:view.getPageTitle()}" placeBar="false">
+				<xe:this.footerLinks>
+
+
+				</xe:this.footerLinks>
+				<xe:this.bannerUtilityLinks>
+
+					<xe:userTreeNode>
+						<xe:this.label><![CDATA[#{javascript:@Name("[CN]",@UserName())}]]></xe:this.label>
+					</xe:userTreeNode>
+				</xe:this.bannerUtilityLinks>
+				<xe:this.bannerApplicationLinks>
+
+					<xe:basicLeafNode label="${javascript:@DbTitle()}"
+						selected="true">
+					</xe:basicLeafNode>
+				</xe:this.bannerApplicationLinks>
+			</xe:oneuiApplication>
+		</xe:this.configuration>
+	</xe:applicationLayout>
+</xp:view>

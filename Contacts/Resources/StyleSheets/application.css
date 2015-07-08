@@ -1,0 +1,25 @@
+/*** CUSTOM LAYOUT ***/
+td {
+    vertical-align: top;
+}
+
+/*** FORMS - FIELDS AND LABELS ***/
+.xspTextLabel {
+    font-weight: bold;
+    color: #444444;
+    display: block;
+    width:200px;
+    padding-left: 15px;
+ }
+
+.xspTextLabel.required {
+    background: rgba(210, 0, 0, 0) url("/icons/vwicn150.gif") no-repeat scroll 0 50%;
+ }
+
+
+.infoKader {
+	border:1px solid blue;
+	margin:5px;
+	padding:5px;
+}
+

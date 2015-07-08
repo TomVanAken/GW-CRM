@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257E7B003C4BE5" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="11d6" sequence="9" unid="7C8166C880201441C1257E7C006C2486">
+<created><datetime dst="true">20150708T214112,38+02</datetime></created>
+<modified><datetime dst="true">20150708T215742,65+02</datetime></modified>
+<revised><datetime dst="true">20150708T215742,64+02</datetime></revised>
+<lastaccessed><datetime dst="true">20150708T215742,65+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20150708T214112,39+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Demo Administrator/O=demo</name></updatedby>
+<wassignedby><name>CN=Demo Administrator/O=demo</name></wassignedby>
+<item name="$Flags"><text>34567Cg~[</text></item>
+<item name="$TITLE"><text>com/gw/common/converters/NamesConverter.java</text></item>
+
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>com/gw/common/converters/NamesConverter.java</text></item>
+
+</note>

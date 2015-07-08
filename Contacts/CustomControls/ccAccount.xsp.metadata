@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257E7B003C4BE5" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="276" sequence="155" unid="0D056AFACEAE27D7C1257E7B0041F38A">
+<created><datetime dst="true">20150707T140021,86+02</datetime></created>
+<modified><datetime dst="true">20150708T224051,80+02</datetime></modified>
+<revised><datetime dst="true">20150708T224051,79+02</datetime></revised>
+<lastaccessed><datetime dst="true">20150708T224051,80+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20150707T140021,87+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Demo Administrator/O=demo</name></updatedby>
+<wassignedby><name>CN=Demo Administrator/O=demo</name></wassignedby>
+<item name="$Flags"><text>gC~4;</text></item>
+<item name="$TITLE"><text>ccAccount.xsp</text></item>
+
+
+
+
+
+
+
+<item name="$FileNames" sign="true"><text>ccAccount.xsp</text></item>
+<item name="$DesignerVersion"><text>8.5</text></item>
+
+
+</note>
