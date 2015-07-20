@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note default='true' class='icon' xmlns='http://www.lotus.com/dxl' version='9.0'
  maintenanceversion='1.0' replicaid='C1257E7B003C4BE5'>
-<noteinfo noteid='11a' unid='9CA57011ECBED0E5C1257D9E0032F4DC' sequence='14'>
+<noteinfo noteid='11a' unid='9CA57011ECBED0E5C1257D9E0032F4DC' sequence='15'>
 <created><datetime>20141128T101634,84+01</datetime></created>
-<modified><datetime dst='true'>20150707T125837,50+02</datetime></modified>
-<revised><datetime dst='true'>20150707T125837,49+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150707T125837,50+02</datetime></lastaccessed>
+<modified><datetime dst='true'>20150720T102639,57+02</datetime></modified>
+<revised><datetime dst='true'>20150720T102639,56+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20150720T102639,57+02</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20150707T125836,04+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Tom Van Aken/OU=AXEIF/O=AGFA</name><name>CN=BEDEVDSHR01/OU=SERVER/O=DEV</name><name
 >CN=Tom Van Aken/OU=AXEIF/O=AGFA</name><name>CN=Demo Administrator/O=demo</name></updatedby>
@@ -24,7 +24,6 @@ d30fAAAAAPHXd33Xd3d913d9HwAAAADx13d913d3fdd3fR8AAAAA8R3d0dd3d30d3dEfAAAAAA8R
 EREdd3fRERER8AAAAAAA////Ed3dEf///wAAAAAAAAAAAPERER8AAAAAAAAAAAAAAAAP///wAAAA
 AAAAUEECICABAAD/////+A4DgA==
 </rawitemdata></item>
-<item name='$DefaultXPage'><text>mydashboard.xsp</text></item>
 <item name='$DefaultFrameset'><text>_frsEntrance</text></item>
 <item name='$PIRCRefreshModTime'><datetime>20141129T010447,74+01</datetime></item>
 <item name='$TemplateModTime'><datetime>20141128T103334,70+01</datetime></item>
@@ -32,5 +31,6 @@ AAAAUEECICABAAD/////+A4DgA==
 <item name='$TemplateFileName'><text>D:\Lotus\Domino\data\Agfa\AdvuPlus\dashboard.nsf</text></item>
 <item name='$Flags'><text>J7F!</text></item>
 <item name='$Daos'><text>0</text></item>
-<item name='$TITLE'><text>Contacts</text></item></note>
+<item name='$TITLE'><text>Contacts</text></item>
+<item name='$DefaultXPage'><text>accounts.xsp</text></item></note>
 

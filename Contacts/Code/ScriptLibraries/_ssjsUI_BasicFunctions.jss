@@ -84,7 +84,7 @@ function isRequiredField(fieldName) {
 	try{
 		var component = getComponent(fieldName);
 		if(component==null) return false;
-		if(component instanceof com.ibm.xsp.component.xp.XspOutputText) return false;
+		if(!(component instanceof javax.faces.component.UIInput)) return false;
 
 		if(component.isRequired()) bRequired = true;
     }catch(e){xspOpenLog.logException(e, fieldComponent)}

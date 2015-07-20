@@ -23,3 +23,7 @@
 .dijitTextBox, .xspInputFieldTextArea {
 	width: 302px;
 }
+
+.xspInputFieldRichText {
+	width: 600px;
+}

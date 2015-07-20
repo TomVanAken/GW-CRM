@@ -19,6 +19,9 @@ public class AppUtils {
 
 	private static OpenLog oLog = new OpenLog();
 	
+	static {
+		oLog.setDebugMode(false);
+	}
 	/**
 	 * Checks if current user is an author for the given document
 	 * @param doc the document to check for
@@ -31,10 +34,11 @@ public class AppUtils {
 	 */
 	public static boolean isAuthor(Document doc) {
 		try {
+			oLog.logDebug(doc.toString());
 			Session s = Factory.getSession(SessionType.CURRENT);
 			String userName = s.getEffectiveUserName();
 			Database db = doc.getParentDatabase();
-			
+			oLog.logDebug(db.getTitle());
 			int userAccess = db.queryAccess(userName);
 			//User has editor access or above
 			if(userAccess > ACL.LEVEL_AUTHOR) return true;
@@ -42,7 +46,7 @@ public class AppUtils {
 			//User has no author access
 			if(userAccess < ACL.LEVEL_AUTHOR) return false;
 			List<String> authors = doc.getItemValues("docAuthors", String.class);
-									
+			oLog.logDebug(authors);						
 			//User is member of authors field
 			if(authors.contains(userName)) return true;
 			
@@ -50,7 +54,7 @@ public class AppUtils {
 			Collection<String> userGroupsAndRoles = s.getUserGroupNameCollection();
 			userGroupsAndRoles.addAll(db.queryAccessRoles(userName));
 			userGroupsAndRoles.add(s.getEffectiveUserName());
-						
+			oLog.logDebug(userGroupsAndRoles);
 			//For deeper analysis of the values, we loop them one by one
 			Vector<String> authorsUCase = new Vector<String>(); //Create this Collection already for faster exhaustive check later on
 			for(String author:authors) {

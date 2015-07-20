@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.data>
+		<xp:dominoDocument var="dsContact" formName="frmContact"
+			computeWithForm="onsave">
+		</xp:dominoDocument>
+	</xp:this.data>
+	<xp:this.afterPageLoad><![CDATA[#{javascript:var accountName = "";
+var accountId = dsContact.getItemValueString("AccountId");
+	if(accountId != null && accountId !="") {
+		//Get Account Name
+		var accountName = database.getDocumentByUNID(accountId).getItemValueString("AccountName");
+	
+	}
+	
+var contactLastName = dsContact.getItemValueString("ContactLastName");
+var contactFirstName = dsContact.getItemValueString("ContactFirstName");
+var fullName = contactLastName + @If(contactFirstName=="","",", " + contactFirstName);
+var title = "Contact" + @If(accountName=="",""," > " + accountName) + @If(fullName=="",""," > " + fullName);
+view.setPageTitle(title)}]]></xp:this.afterPageLoad>
+
+	<xp:this.beforePageLoad><![CDATA[#{javascript:if(dsContact.isNewNote() && sessionScope.newContactAccountId != null && sessionScope.newContactAccountId!="") {
+		dsContact.setValue("AccountId", sessionScope.newContactAccountId);
+}}]]></xp:this.beforePageLoad>
+	<xc:ccLayout_SinglePage>
+		<xp:this.facets><xp:panel xp:key="messageArea">
+				<xp:messages id="messages1"></xp:messages>
+			</xp:panel><xp:panel xp:key="buttonArea">
+				<xp:button value="Edit" id="btnEdit">
+
+					<xp:this.rendered><![CDATA[#{javascript:isAuthor(dsContact) && !dsContact.isEditable();}]]></xp:this.rendered>
+					
+				<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+					<xp:this.action>
+						<xp:changeDocumentMode mode="edit"
+							var="dsContact">
+						</xp:changeDocumentMode>
+					</xp:this.action></xp:eventHandler></xp:button>
+				<xp:button value="Save" id="btnSave" rendered="#{javascript:dsContact.isEditable()}">
+					
+				<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+					<xp:this.action>
+
+						<xp:actionGroup>
+
+
+
+
+
+
+							<xp:saveDocument var="dsContact"></xp:saveDocument>
+
+							<xp:changeDocumentMode mode="readOnly"
+								var="dsContact">
+							</xp:changeDocumentMode>
+						</xp:actionGroup>
+					</xp:this.action></xp:eventHandler></xp:button>
+				<xp:button value="Close" id="btnCancel">
+
+					<xp:eventHandler event="onclick" submit="true" refreshMode="norefresh" save="false" immediate="true">
+						<xp:this.action>
+							<xp:openPage name="$$PreviousPage"></xp:openPage>
+						</xp:this.action></xp:eventHandler>
+				</xp:button>
+			</xp:panel>
+			
+			
+			<xp:panel xp:key="contentArea">
+				<xp:this.data>
+					<xp:dominoDocument var="dsAccount"
+						action="openDocument" ignoreRequestParams="true"
+						formName="frmAccount">
+						<xp:this.documentId><![CDATA[${javascript:dsContact.getItemValueString("AccountId")}]]></xp:this.documentId>
+					</xp:dominoDocument>
+				</xp:this.data>
+				<xp:panel styleClass="infoKader">
+
+
+					<xp:this.rendered><![CDATA[#{javascript:dsContact.getItemValueString("AccountId")!=""}]]></xp:this.rendered>
+					
+					<xp:table>
+						
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Account"
+									id="lblAccountName">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:link escape="true"
+									id="lnkAccount">
+									<xp:this.text><![CDATA[#{javascript:dsAccount.getItemValueString("AccountName")}]]></xp:this.text>
+									<xp:this.value><![CDATA[#{javascript:"/account.xsp?documentId=" + dsContact.getItemValueString("accountId") + "&action=openDocument"}]]></xp:this.value>
+								</xp:link>
+
+							</xp:td>
+						</xp:tr>
+					</xp:table>
+				</xp:panel>
+				<xp:panel styleClass="infoKader">
+					<xp:table>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Salutation"
+									id="contactSalutation_Label1" for="contactSalutation1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:comboBox
+									value="#{dsContact.ContactSalutation}"
+									id="contactSalutation1">
+									<xp:selectItem itemLabel=""
+										itemValue="" id="selectItem1">
+									</xp:selectItem>
+									<xp:selectItems id="selectItems1">
+										<xp:this.value><![CDATA[${javascript:configMgr.getTextList( "Keywords&&Contact Salutations")}]]></xp:this.value>
+									</xp:selectItems>
+								</xp:comboBox>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Firstname"
+									id="contactFirstName_Label1" for="contactFirstName1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText
+									value="#{dsContact.ContactFirstName}" id="contactFirstName1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Lastname"
+									id="contactLastName_Label1" for="contactLastName1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText
+									value="#{dsContact.ContactLastName}" id="contactLastName1"
+									required="true">
+									<xp:this.validators>
+										<xp:validateRequired>
+											<xp:this.message><![CDATA[#{javascript:getLabelFor(this).getValue() + " is required."}]]></xp:this.message>
+										</xp:validateRequired>
+									</xp:this.validators>
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Title"
+									id="contactTitle_Label1" for="contactTitle1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText
+									value="#{dsContact.ContactTitle}" id="contactTitle1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Department"
+									id="contactDepartment_Label1" for="contactDepartment1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText
+									value="#{dsContact.ContactDepartment}"
+									id="contactDepartment1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Mobile phone"
+									id="contactMobilePhone_Label1" for="contactMobilePhone1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText
+									value="#{dsContact.ContactMobilePhone}"
+									id="contactMobilePhone1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Office phone"
+									id="contactOfficePhone_Label1" for="contactOfficePhone1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText
+									value="#{dsContact.ContactOfficePhone}"
+									id="contactOfficePhone1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Email"
+									id="contactEmail_Label1" for="contactEmail1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText
+									value="#{dsContact.ContactEmail}" id="contactEmail1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Fax"
+									id="contactFax_Label1" for="contactFax1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText
+									value="#{dsContact.ContactFax}" id="contactFax1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Other"
+									id="contactOther_Label1" for="contactOther1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputTextarea
+									value="#{dsContact.ContactOther}" id="contactOther1">
+								</xp:inputTextarea>
+							</xp:td>
+						</xp:tr>
+					</xp:table>
+					</xp:panel>
+				<xp:panel styleClass="infoKader"  id="divContactAddress">
+					<xp:table rendered="#{javascript:dsContact.isEditable()}">
+						<xp:tr>
+							<xp:td>
+							</xp:td>
+							<xp:td>
+								<xp:comboBox
+									id="accountAddressOverride1"
+									value="#{dsContact.AccountAddressOverride}" defaultValue="0">
+									<xp:selectItem
+										itemLabel="Use Account Address" itemValue="0">
+									</xp:selectItem>
+									<xp:selectItem
+										itemLabel="Override address" itemValue="1">
+									</xp:selectItem>
+									<xp:eventHandler event="onchange"
+										submit="true" refreshMode="partial" disableValidators="true" refreshId="divContactAddress">
+									</xp:eventHandler></xp:comboBox>
+							</xp:td>
+						</xp:tr>
+						</xp:table>
+					<xp:panel readonly="true">
+						<xp:this.rendered><![CDATA[#{javascript:dsContact.getItemValueString("AccountAddressOverride")!="1"}]]></xp:this.rendered>
+						<xp:table>
+							<xp:tr>
+								<xp:td>
+									<xp:label value="Address"
+										id="accountAddress_Label1" for="accountAddress1">
+									</xp:label>
+								</xp:td>
+								<xp:td>
+									<xp:inputText
+										value="#{dsAccount.AccountAddress}" id="accountAddress1">
+									</xp:inputText>
+								</xp:td>
+							</xp:tr>
+							<xp:tr>
+								<xp:td>
+									<xp:label
+										value="Postal code" id="accountPostalCode_Label1"
+										for="accountPostalCode1">
+									</xp:label>
+								</xp:td>
+								<xp:td>
+									<xp:inputText
+										value="#{dsAccount.AccountPostalCode}"
+										id="accountPostalCode1">
+									</xp:inputText>
+								</xp:td>
+							</xp:tr>
+							<xp:tr>
+								<xp:td>
+									<xp:label value="City"
+										id="accountCity_Label1" for="accountCity1">
+									</xp:label>
+								</xp:td>
+								<xp:td>
+									<xp:inputText
+										value="#{dsAccount.AccountCity}" id="accountCity1">
+									</xp:inputText>
+								</xp:td>
+							</xp:tr>
+							<xp:tr>
+								<xp:td>
+									<xp:label value="Region"
+										id="accountRegion_Label1" for="accountRegion1">
+									</xp:label>
+								</xp:td>
+								<xp:td>
+									<xp:inputText
+										value="#{dsAccount.AccountRegion}" id="accountRegion1">
+									</xp:inputText>
+								</xp:td>
+							</xp:tr>
+							<xp:tr>
+								<xp:td>
+									<xp:label value="Country"
+										id="accountCountry_Label1" for="accountCountry1">
+									</xp:label>
+								</xp:td>
+								<xp:td>
+									<xp:inputText
+										value="#{dsAccount.AccountCountry}" id="accountCountry1">
+									</xp:inputText>
+								</xp:td>
+							</xp:tr>
+						</xp:table>
+					</xp:panel>
+
+					<xp:panel><xp:this.rendered><![CDATA[#{javascript:dsContact.getItemValueString("AccountAddressOverride")=="1"}]]></xp:this.rendered><xp:table>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Address"
+									id="contactAddress_Label1" for="contactAddress1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText
+									value="#{dsContact.ContactAddress}" id="contactAddress1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Postal coe"
+									id="contactPostalCode_Label1" for="contactPostalCode1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText
+									value="#{dsContact.ContactPostalCode}"
+									id="contactPostalCode1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="City"
+									id="contactCity_Label1" for="contactCity1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText
+									value="#{dsContact.ContactCity}" id="contactCity1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Region"
+									id="contactRegion_Label1" for="contactRegion1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText
+									value="#{dsContact.ContactRegion}" id="contactRegion1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Country"
+									id="contactCountry_Label1" for="contactCountry1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText
+									value="#{dsContact.ContactCountry}" id="contactCountry1">
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						</xp:table>
+					</xp:panel>
+					</xp:panel>
+			</xp:panel>
+		</xp:this.facets>
+	</xc:ccLayout_SinglePage>
+</xp:view>

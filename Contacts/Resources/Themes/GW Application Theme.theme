@@ -21,6 +21,7 @@
       <styleSheet href="gw_oneui3.css"  media="all"/>
       <styleSheet href="application.css"  media="all"/>
       <script target="xsp" type="text/javascript" src="_ssjsUI_BasicFunctions" clientSide="#{false}"/>
+      <script target="xsp" type="text/javascript" src="ssjsApplicationFunctions" clientSide="#{false}"/>
    </resources>
 	<!--
 		Use this pattern to define property name/value pairs for controls

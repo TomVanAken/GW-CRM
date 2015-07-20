@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257E7B003C4BE5" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="2ae" sequence="75" unid="EFAEF04F1B602AE5C1257E7C003B4DFC">
+<noteinfo noteid="2ae" sequence="79" unid="EFAEF04F1B602AE5C1257E7C003B4DFC">
 <created><datetime dst="true">20150708T124745,88+02</datetime></created>
-<modified><datetime dst="true">20150708T222520,90+02</datetime></modified>
-<revised><datetime dst="true">20150708T222520,89+02</datetime></revised>
-<lastaccessed><datetime dst="true">20150708T222520,90+02</datetime></lastaccessed>
+<modified><datetime dst="true">20150713T133244,67+02</datetime></modified>
+<revised><datetime dst="true">20150713T133244,66+02</datetime></revised>
+<lastaccessed><datetime dst="true">20150713T133244,67+02</datetime></lastaccessed>
 <addedtofile><datetime dst="true">20150708T124745,89+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Demo Administrator/O=demo</name></updatedby>
 <wassignedby><name>CN=Demo Administrator/O=demo</name></wassignedby>
@@ -12,11 +12,11 @@
 
 
 
+<item name="$DesignerVersion"><text>8.5.2</text></item>
 
 
-<item name="$DesignerVersion"><text>8.5</text></item>
 
 
-<item name="$FileNames" sign="true"><text>ccAccountsView.xsp</text></item>
 
-</note>
+
+<item name="$FileNames" sign="true"><text>ccAccountsView.xsp</text></item></note>

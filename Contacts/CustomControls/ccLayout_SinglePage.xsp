@@ -7,13 +7,13 @@
 		<xe:this.facets>
 			<xe:navigator id="navigator1" xp:key="LeftColumn">
 				<xe:this.treeNodes>
-
-					
-
 					<xe:basicLeafNode href="/accounts.xsp"
 						label="Accounts">
-
 						<xe:this.selected><![CDATA[#{javascript:view.getPageName().indexOf("account") > -1}]]></xe:this.selected>
+					</xe:basicLeafNode>
+					<xe:basicLeafNode href="/contacts.xsp"
+						label="Contacts">
+						<xe:this.selected><![CDATA[#{javascript:view.getPageName().indexOf("contact") > -1}]]></xe:this.selected>
 					</xe:basicLeafNode>
 				</xe:this.treeNodes>
 			</xe:navigator>
@@ -29,8 +29,9 @@
 			<xp:panel id="divMessages" styleClass="divMessages">
 				<xp:callback facetName="messageArea" id="callback2"></xp:callback>
 			</xp:panel>
+			
 			<xp:panel id="divContent" styleClass="divContent">
-				<xp:callback facetName="contentArea" id="callback3"></xp:callback>
+			<xp:callback facetName="contentArea" id="callback3"></xp:callback>
 			</xp:panel>
 		</xp:panel>
 		<xe:this.configuration>

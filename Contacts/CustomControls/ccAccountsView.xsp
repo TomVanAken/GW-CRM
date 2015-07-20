@@ -18,7 +18,7 @@
 				</xp:button>
 			</xp:panel>
 			<xp:viewPanel rows="30" id="viewPanel1"
-				xp:key="contentArea">
+				xp:key="contentArea" pageName="/account.xsp" target="_self">
 				<xp:this.facets>
 					<xp:pager partialRefresh="true"
 						layout="Previous Group Next" xp:key="headerPager" id="pager1">

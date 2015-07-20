@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	
+	<xc:ccLayout_SinglePage>
+	
+	<xp:this.facets>
+	<xp:panel xp:key="buttonArea">
+				<xp:button value="New Contact" id="btnNewContact">
+					<xp:eventHandler event="onclick" submit="true"
+						refreshMode="norefresh" immediate="true">
+						<xp:this.action>
+							<xp:openPage name="/contact.xsp"
+								target="newDocument">
+							</xp:openPage>
+						</xp:this.action>
+					</xp:eventHandler>
+				</xp:button>
+			</xp:panel>
+	
+	<xp:panel xp:key="contentArea">
+				<xp:viewPanel rows="30" id="viewPanel1" pageName="/contact.xsp">
+					<xp:this.facets>
+						<xp:pager partialRefresh="true" layout="Previous Group Next" xp:key="headerPager" id="pager1"></xp:pager>
+					</xp:this.facets>
+					<xp:this.data>
+						<xp:dominoView var="vwContacts" viewName="vwContacts"></xp:dominoView>
+					</xp:this.data>
+					<xp:viewColumn columnName="$AccountName" id="viewColumn1">
+						<xp:viewColumnHeader value="Account" id="viewColumnHeader1" sortable="true"></xp:viewColumnHeader>
+					</xp:viewColumn>
+					<xp:viewColumn columnName="$ContactName" id="viewColumn2" displayAs="link" openDocAsReadonly="true">
+						<xp:viewColumnHeader value="Name" id="viewColumnHeader2" sortable="true"></xp:viewColumnHeader>
+					</xp:viewColumn>
+					<xp:viewColumn columnName="$ContactTitle" id="viewColumn3">
+						<xp:viewColumnHeader value="Title" id="viewColumnHeader3" sortable="true"></xp:viewColumnHeader>
+					</xp:viewColumn>
+					<xp:viewColumn columnName="$ContactMobilePhone" id="viewColumn4">
+						<xp:viewColumnHeader value="Mobile Phone" id="viewColumnHeader4"></xp:viewColumnHeader>
+					</xp:viewColumn>
+					<xp:viewColumn columnName="$ContactOfficePhone" id="viewColumn5">
+						<xp:viewColumnHeader value="Office Phone" id="viewColumnHeader5"></xp:viewColumnHeader>
+					</xp:viewColumn>
+					<xp:viewColumn columnName="$ContactEmail" id="viewColumn6">
+						<xp:viewColumnHeader value="Email" id="viewColumnHeader6"></xp:viewColumnHeader>
+					</xp:viewColumn>
+				</xp:viewPanel>
+			</xp:panel></xp:this.facets></xc:ccLayout_SinglePage></xp:view>

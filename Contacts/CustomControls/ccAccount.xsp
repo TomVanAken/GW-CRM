@@ -8,8 +8,7 @@ view.setPageTitle(title)}]]></xp:this.afterPageLoad>
 			<xp:panel xp:key="buttonArea">
 				<xp:button value="Edit" id="btnEdit">
 
-					<xp:this.rendered><![CDATA[#{javascript:importPackage(com.gw.application);
-AppUtils.isAuthor(dsAccount.getDocument()) && !dsAccount.isEditable();}]]></xp:this.rendered>
+					<xp:this.rendered><![CDATA[#{javascript:isAuthor(dsAccount) && !dsAccount.isEditable();}]]></xp:this.rendered>
 					<xp:eventHandler event="onclick" submit="true"
 						refreshMode="complete">
 						<xp:this.action>
@@ -20,8 +19,18 @@ AppUtils.isAuthor(dsAccount.getDocument()) && !dsAccount.isEditable();}]]></xp:t
 				</xp:button>
 				<xp:button value="Save" id="btnSave"
 					rendered="#{javascript:dsAccount.isEditable()}">
+
 					<xp:eventHandler event="onclick" submit="true"
-						refreshMode="complete" immediate="false" save="true">
+						refreshMode="complete">
+						<xp:this.action>
+
+							<xp:actionGroup>
+								<xp:saveDocument var="dsAccount"></xp:saveDocument>
+								<xp:changeDocumentMode mode="readOnly"
+									var="dsAccount">
+								</xp:changeDocumentMode>
+							</xp:actionGroup>
+						</xp:this.action>
 					</xp:eventHandler>
 				</xp:button>
 				<xp:button value="Close" id="btnCancel">
@@ -189,9 +198,9 @@ AppUtils.isAuthor(dsAccount.getDocument()) && !dsAccount.isEditable();}]]></xp:t
 							<xp:td>
 								<xe:djComboBox id="accountSector1" value="#{dsAccount.AccountSector}"
 									ignoreCase="true" validatorExt="return true;">
-									<xp:selectItem itemLabel="">
+									<xp:selectItem itemLabel="" id="selectItem1">
 									</xp:selectItem>
-									<xp:selectItems>
+									<xp:selectItems id="selectItems1">
 										<xp:this.value><![CDATA[${javascript:
 						var values = configMgr.getTextList("Keywords&&Sector List");
 						return values;}]]></xp:this.value>
@@ -208,9 +217,9 @@ AppUtils.isAuthor(dsAccount.getDocument()) && !dsAccount.isEditable();}]]></xp:t
 							<xp:td>
 								<xe:djComboBox id="accountType1" value="#{dsAccount.AccountType}"
 									ignoreCase="true" validatorExt="return true;">
-									<xp:selectItem itemLabel="">
+									<xp:selectItem itemLabel="" id="selectItem2">
 									</xp:selectItem>
-									<xp:selectItems>
+									<xp:selectItems id="selectItems2">
 										<xp:this.value><![CDATA[${javascript:
 						var values = configMgr.getTextList("Keywords&&Account Types");
 						return values;}]]></xp:this.value>
@@ -225,29 +234,27 @@ AppUtils.isAuthor(dsAccount.getDocument()) && !dsAccount.isEditable();}]]></xp:t
 								</xp:label>
 							</xp:td>
 							<xp:td>
-							<xp:text escape="true" id="dspNamePicker1"
-								value="#{javascript:@Name('[Abbreviate]', dsAccount.getItemValue('AccountAccountManager'))}"
-								rendered="#{javascript:!dsAccount.isEditable()}">
-							</xp:text>
-							<xe:namePicker id="namePicker1" for="accountAccountManager1">
+								<xp:text escape="true" id="dspNamePicker1"
+									value="#{javascript:@Name('[Abbreviate]', dsAccount.getItemValue('AccountAccountManager'))}"
+									rendered="#{javascript:!dsAccount.isEditable()}">
+								</xp:text>
+								<xe:namePicker id="namePicker1" for="accountAccountManager1">
 									<xe:this.dataProvider>
 										<xe:dominoNABNamePicker addressBookSel="all"
 											groups="false" nameList="peopleByLastName" people="true">
 										</xe:dominoNABNamePicker>
 									</xe:this.dataProvider>
 								</xe:namePicker>
-							<xe:djextNameTextBox
-								id="accountAccountManager1"
-								value="#{dsAccount.AccountAccountManager}"
-								rendered="#{javascript:dsAccount.isEditable()}"
-								defaultValue="${javascript:@UserName()}">
-								<xe:this.converter>
-									<xp:customConverter>
-										<xp:this.getAsObject><![CDATA[#{javascript:return @Name("[Canonicalize]",@Trim(@Explode(value, ",")));}]]></xp:this.getAsObject>
-										<xp:this.getAsString><![CDATA[#{javascript:@Implode(@Name("[Abbreviate]", value), ",")}]]></xp:this.getAsString>
-									</xp:customConverter>
-								</xe:this.converter>
-							</xe:djextNameTextBox>
+								<xe:djextNameTextBox id="accountAccountManager1"
+									value="#{dsAccount.AccountAccountManager}" rendered="#{javascript:dsAccount.isEditable()}"
+									defaultValue="${javascript:@UserName()}">
+									<xe:this.converter>
+										<xp:customConverter>
+											<xp:this.getAsObject><![CDATA[#{javascript:return @Name("[Canonicalize]",@Trim(@Explode(value, ",")));}]]></xp:this.getAsObject>
+											<xp:this.getAsString><![CDATA[#{javascript:@Implode(@Name("[Abbreviate]", value), ",")}]]></xp:this.getAsString>
+										</xp:customConverter>
+									</xe:this.converter>
+								</xe:djextNameTextBox>
 							</xp:td>
 						</xp:tr>
 						<xp:tr>
@@ -271,18 +278,90 @@ AppUtils.isAuthor(dsAccount.getDocument()) && !dsAccount.isEditable();}]]></xp:t
 
 					</xp:table>
 				</xp:panel>
-				<xp:label value="Comments" id="accountComments_Label1" for="accountComments1">
-				</xp:label>
-				<xp:inputRichText value="#{dsAccount.AccountComments}"
-					id="accountComments1">
-				</xp:inputRichText>
+
+
+				<xp:panel styleClass="infoKader">
+					<xp:panel styleClass="buttonbar">
+						<xp:text escape="true" id="headerContacts" value="Contacts"
+							tagName="h2">
+						</xp:text>
+						<xp:button value="New Contact" id="btnCreateContact">
+							<xp:this.rendered><![CDATA[#{javascript:!dsAccount.isNewNote() && !dsAccount.isEditable() && isAuthor(dsAccount)}]]></xp:this.rendered>
+							<xp:eventHandler event="onclick" submit="true"
+								refreshMode="norefresh" immediate="true">
+								<xp:this.action>
+
+									<xp:actionGroup>
+										<xp:executeScript
+											script="#{javascript:sessionScope.newContactAccountId = dsAccount.getDocument().getUniversalID();}">
+										</xp:executeScript>
+										<xp:openPage name="/contact.xsp" target="newDocument">
+										</xp:openPage>
+									</xp:actionGroup>
+								</xp:this.action>
+							</xp:eventHandler>
+						</xp:button>
+					</xp:panel>
+					<xp:dataTable id="dataTable1" rows="30" value="#{view1}"
+						indexVar="index" var="entry">
+						<xp:this.data>
+							<xp:dominoView var="vwContacts" viewName="Contacts per Account"
+								categoryFilter="#{javascript:dsAccount.getDocument().getUniversalID()}">
+							</xp:dominoView>
+						</xp:this.data>
+						<xp:column id="column3">
+							
+							<xp:link escape="true" id="lnkContactName"
+								text="#{entry.$contactName}">
+							<xp:this.value><![CDATA[#{javascript:"/contact.xsp?documentId=" + entry.getDocument().getUniversalID() + "&action=openDocument"}]]></xp:this.value></xp:link>
+							<xp:this.facets>
+	<xp:label id="lblContactName" xp:key="header" value="Name" for="lnkContactName"></xp:label></xp:this.facets></xp:column>
+						<xp:column id="column1"><xp:this.facets>
+	<xp:label id="lblContactTitle" xp:key="header" value="Title" for="contactTitle"></xp:label></xp:this.facets>
+							<xp:text escape="true" id="contactTitle"
+								value="#{entry.$ContactTitle}">
+							</xp:text></xp:column>
+						<xp:column id="column4"><xp:this.facets>
+	<xp:label value="Phone" id="lblContactPhone" xp:key="header" for="contactPhone"></xp:label></xp:this.facets>
+							<xp:text escape="true"
+								id="contactMobilePhone" value="#{entry.$ContactMobilePhone}"
+								styleClass="block">
+							</xp:text>
+							<xp:text escape="true"
+								id="contactOfficePhone" value="#{entry.$ContactOfficePhone}"
+								styleClass="block">
+							<xp:this.rendered><![CDATA[#{entry.$ContactOfficePhone!=""}]]></xp:this.rendered></xp:text></xp:column>
+						<xp:column id="column2"><xp:this.facets>
+	<xp:label value="Label" id="label3" xp:key="header" for="contactMail"></xp:label></xp:this.facets>
+							<xp:link escape="true" id="lnkContactMail">
+							<xp:this.value><![CDATA[#{javascript:"mailto://" + entry.getColumnValue("$ContactEmail")}]]></xp:this.value><xp:this.text><![CDATA[#{javascript:entry.getColumnValue("$ContactEmail")}]]></xp:this.text><xp:this.rendered><![CDATA[#{javascript:entry.getColumnValue("$ContactEmail")!=""}]]></xp:this.rendered></xp:link>
+							</xp:column>
+					</xp:dataTable>
+					
+				</xp:panel>
+				<xp:table>
+					<xp:tr>
+						<xp:td>
+							<xp:label value="Comments"
+								id="accountComments_Label1" for="accountComments1">
+							</xp:label>
+						</xp:td>
+						<xp:td>
+							<xp:inputRichText
+								value="#{dsAccount.AccountComments}" id="accountComments1">
+							</xp:inputRichText>
+						</xp:td>
+					</xp:tr>
+				</xp:table>
 			</xp:panel>
+
 		</xp:this.facets>
 	</ui:ccLayout_SinglePage>
 	<xp:this.data>
 		<xp:dominoDocument var="dsAccount" computeWithForm="onsave"
 			formName="frmAccount">
 		</xp:dominoDocument>
+		<xp:dominoView var="view1" viewName="Contacts per Account"></xp:dominoView>
 	</xp:this.data>
 
 

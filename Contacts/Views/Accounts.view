@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
  replicaid='C1257E7B003C4BE5'>
-<noteinfo noteid='2b2' unid='5FA04A964DC93FF1C1257E7C003B6E1E' sequence='10'>
+<noteinfo noteid='2b2' unid='5FA04A964DC93FF1C1257E7C003B6E1E' sequence='12'>
 <created><datetime dst='true'>20150708T124908,14+02</datetime></created>
-<modified><datetime dst='true'>20150708T222500,76+02</datetime></modified>
-<revised><datetime dst='true'>20150708T222500,75+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150708T222500,76+02</datetime></lastaccessed>
+<modified><datetime dst='true'>20150720T104453,48+02</datetime></modified>
+<revised><datetime dst='true'>20150720T104453,47+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20150720T104453,48+02</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20150708T124908,15+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Demo Administrator/O=demo</name></updatedby>
 <wassignedby><name>CN=Demo Administrator/O=demo</name></wassignedby>
@@ -60,18 +60,16 @@ AP///wAFAODx/wABAOHh4QAAAAAAAAAAAAEA////AAEA////AAAAAQAAAAAAAQCAgIAAAQAAAAAA
 AAAIAAAAAAABAFhDAAyAAQAAAAAAAQICAgEBAQEHBAMAAAAAAAAAAC0tIDpZQwAACAAAAAEAAAAB
 AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAALiwkAA==
 </rawitemdata></item>
-<item name='$Fonts' sign='true'><textlist><text>5</text><text>38</text><text
->Arial</text><text>6</text><text>38</text><text>Arial</text><text>7</text><text
->38</text><text>Arial</text><text>8</text><text>38</text><text>Arial</text><text
->9</text><text>38</text><text>Arial</text><text>10</text><text>38</text><text
->Arial</text><text>11</text><text>38</text><text>Arial</text><text>12</text><text
->38</text><text>Arial</text><text>13</text><text>38</text><text>Arial</text><text
->14</text><text>38</text><text>Arial</text></textlist></item>
-<item name='$Comment' sign='true'><text>GW Components API 1.0.0</text></item>
+<item name='$Fonts'><textlist><text>5</text><text>38</text><text>Arial</text><text
+>6</text><text>38</text><text>Arial</text><text>7</text><text>38</text><text
+>Arial</text><text>8</text><text>38</text><text>Arial</text><text>9</text><text
+>38</text><text>Arial</text><text>10</text><text>38</text><text>Arial</text><text
+>11</text><text>38</text><text>Arial</text><text>12</text><text>38</text><text
+>Arial</text><text>13</text><text>38</text><text>Arial</text><text>14</text><text
+>38</text><text>Arial</text></textlist></item>
 <item name='$FrameInfo' sign='true'><textlist><text>fsEntrance</text><text
 >Content</text></textlist></item>
 <item name='$Flags'><text>Y</text></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item>
 <item name='$SelQuery' sign='true'>
 <rawitemdata type='f'>
 gQYAAAAAif8eAAAAAAABABIAQWNjb3VudHxmcm1BY2NvdW50
@@ -88,5 +86,6 @@ AAAAAAA=
 <item name='$ACTIONS' sign='true'>
 <rawitemdata type='1'>
 vRwBAAAAAQAAAAAAAQAAAAAAAAAQAAEJIQABAL7/HAAAAAEAAACfAQAABgAAAAAAAABCdXR0b24=
-</rawitemdata></item></note>
+</rawitemdata></item>
+<item name='$DesignerVersion' sign='true'><text>8.5.3</text></item></note>
 
