@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
  replicaid='C1257E7B003C4BE5'>
-<noteinfo noteid='11f2' unid='5F957AE5F8635C90C1257E810048E5AF' sequence='9'>
+<noteinfo noteid='11f2' unid='5F957AE5F8635C90C1257E810048E5AF' sequence='10'>
 <created><datetime dst='true'>20150713T151613,91+02</datetime></created>
-<modified><datetime dst='true'>20150720T104501,24+02</datetime></modified>
-<revised><datetime dst='true'>20150720T104501,23+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150720T104501,24+02</datetime></lastaccessed>
+<modified><datetime dst='true'>20150720T162121,20+02</datetime></modified>
+<revised><datetime dst='true'>20150720T162121,18+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20150720T162121,20+02</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20150713T151613,91+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Demo Administrator/O=demo</name></updatedby>
 <wassignedby><name>CN=Demo Administrator/O=demo</name></wassignedby>
@@ -14,6 +14,7 @@
 AQB02igiJVNcOGL0QgCDeiXB
 </rawitemdata></item>
 <item name='$FormulaClass' sign='true'><text>1</text></item>
+<item name='$TITLE' sign='true'><text>Contacts per Account|vwContactsPerAccount</text></item>
 <item name='$Index' sign='true'><text/></item>
 <item name='$Formula' summary='true' sign='true'><formula compiled='true'>
 9AECAHQADAAkQ29udGFjdE5hbWUFAA8AQ29udGFjdExhc3ROYW1lAAUAEABDb250YWN0Rmlyc3RO
@@ -31,6 +32,9 @@ AQAKAGZybUNvbnRhY3QKAgQAHQIEAAMABwAUAA4ACTNTNFM2UzdTOVMxMFM=
 KQACAABECGYHAAAJAIBmAAkADABBY2NvdW50SWQkQ29udGFjdE5hbWU=
 </rawitemdata></item>
 <item name='$Comment' sign='true'><text/></item>
+<item name='$Flags'><text>Y</text></item>
+<item name='$WebFlags'><text>A</text></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
 <item name='$SelQuery' sign='true'>
 <rawitemdata type='f'>
 gQYAAAAAif8eAAAAAAABABIAQ29udGFjdHxmcm1Db250YWN0
@@ -62,21 +66,18 @@ AQAAAAAAAAAIAAAAAAABAA==
 vRw/AAAAAQABAAAAAQAAAAAAAAAAAAAACAACAHn/bAABAPDw8AABAAAAAAAJAAAAAAABAPDw8AAA
 AB8AAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPz/OgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAC+/yYAAAAFAAAAnQEAAAsAAAAAAAAAQ2F0ZWdvcmlfemVt
+AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAC+/yYAAAAFAAAAnQEAAAsAAAAAAAAAQ2F0ZWdvcmlfemUF
 AQBOfL7/KAAAAAUAAACdAQAADgAAAAAAAABfRWRpdCBEb2N1bWVudAIAAgq+/ygAAAAFAAAAnQEA
 AA4AAAAAAAAAX1NlbmQgRG9jdW1lbnQDAAMKvv8iAAAABQAAAJ0BAAAIAAAAAAAAAF9Gb3J3YXJk
 BAAECr7/LAAAAAUAAACdAQAAEgAAAAAAAABfTW92ZSBUbyBGb2xkZXIuLi4FAD18vv8uAAAABQAA
-AJ0BAAATAAAAAAAAAF9SZW1vdmUgRnJvbSBGb2xkZXIABgA+fL7/IAAAAAUAAACdAQAABQAAAAAA
-AABfUmVhZAAHAF58vv8iAAAABQAAAJ0BAAAHAAAAAAAAAF9VbnJlYWQACABufL7/LgAAAAUAAACd
-AQAAEwAAAAAAAABfT3BlbiBpbiBOZXcgV2luZG93AAkAfny+/yQAAAAFAAAAnQEAAAkAAAAAAAAA
-X1ByaW50Li4uAAoAjny+/yIAAAAFAAAAnQEAAAcAAAAAAAAAX0RlbGV0ZQALAJ58vv8uAAAABQAA
+AJ0BAAATAAAAAAAAAF9SZW1vdmUgRnJvbSBGb2xkZXJtBgA+fL7/IAAAAAUAAACdAQAABQAAAAAA
+AABfUmVhZP8HAF58vv8iAAAABQAAAJ0BAAAHAAAAAAAAAF9VbnJlYWQACABufL7/LgAAAAUAAACd
+AQAAEwAAAAAAAABfT3BlbiBpbiBOZXcgV2luZG93MAkAfny+/yQAAAAFAAAAnQEAAAkAAAAAAAAA
+X1ByaW50Li4uAAoAjny+/yIAAAAFAAAAnQEAAAcAAAAAAAAAX0RlbGV0ZXALAJ58vv8uAAAABQAA
 AJ0BAAAUAAAAAAAAAF9Eb2N1bWVudCBQcm9wZXJ0aWVzDACufL7/HgAAAAUAAACdAQAABAAAAAAA
 AABDX3V0DQC+fL7/IAAAAAUAAACdAQAABQAAAAAAAABfQ29weQAOAM58vv8wAAAABQAAAJ0BAAAW
 AAAAAAAAAENvcHkgYXMgRG9jdW1lbnQgX0xpbmsPAN58vv8oAAAABQAAAJ0BAAAOAAAAAAAAAENv
 cHkgYXMgX1RhYmxlEADufL7/IAAAAAUAAACdAQAABgAAAAAAAABQX2FzdGURAP58vv8gAAAABQAA
-AJ0BAAAFAAAAAAAAAF9PcGVuPBIADn2+/yIAAAAFAAAAnQEAAAgAAAAAAAAAQm9va21hcmsTAB59
-</rawitemdata></item>
-<item name='$TITLE' sign='true'><text>Contacts per Account|vwContactsPerAccount</text></item>
-<item name='$DesignerVersion' sign='true'><text>8.5.3</text></item>
-<item name='$Flags'><text>Y</text></item></note>
+AJ0BAAAFAAAAAAAAAF9PcGVuABIADn2+/yIAAAAFAAAAnQEAAAgAAAAAAAAAQm9va21hcmsTAB59
+</rawitemdata></item></note>
 

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note default='true' class='icon' xmlns='http://www.lotus.com/dxl' version='9.0'
  maintenanceversion='1.0' replicaid='C1257E7B003C4BE5'>
-<noteinfo noteid='11a' unid='9CA57011ECBED0E5C1257D9E0032F4DC' sequence='15'>
+<noteinfo noteid='11a' unid='9CA57011ECBED0E5C1257D9E0032F4DC' sequence='16'>
 <created><datetime>20141128T101634,84+01</datetime></created>
-<modified><datetime dst='true'>20150720T102639,57+02</datetime></modified>
-<revised><datetime dst='true'>20150720T102639,56+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150720T102639,57+02</datetime></lastaccessed>
+<modified><datetime dst='true'>20150720T161844,87+02</datetime></modified>
+<revised><datetime dst='true'>20150720T161844,80+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20150720T161844,87+02</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20150707T125836,04+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Tom Van Aken/OU=AXEIF/O=AGFA</name><name>CN=BEDEVDSHR01/OU=SERVER/O=DEV</name><name
 >CN=Tom Van Aken/OU=AXEIF/O=AGFA</name><name>CN=Demo Administrator/O=demo</name></updatedby>
@@ -29,8 +29,11 @@ AAAAUEECICABAAD/////+A4DgA==
 <item name='$TemplateModTime'><datetime>20141128T103334,70+01</datetime></item>
 <item name='$TemplateServerName'><text>CN=BEDEVDSHR01/OU=SERVER/O=DEV</text></item>
 <item name='$TemplateFileName'><text>D:\Lotus\Domino\data\Agfa\AdvuPlus\dashboard.nsf</text></item>
-<item name='$Flags'><text>J7F!</text></item>
 <item name='$Daos'><text>0</text></item>
 <item name='$TITLE'><text>Contacts</text></item>
-<item name='$DefaultXPage'><text>accounts.xsp</text></item></note>
+<item name='$DefaultXPage'><text>accounts.xsp</text></item>
+<item name='$Flags'><text>J7F!</text></item>
+<item name='$LaunchXPageRunOnServer'><text>0</text></item>
+<item name='$FlagsNoRefresh'><text/></item>
+<item name='$AllowRESTDbAPI'><number>2</number></item></note>
 
