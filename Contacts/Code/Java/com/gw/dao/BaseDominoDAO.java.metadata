@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257E8A004A82BF" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="2a2" sequence="8" unid="4A33ED16012DD928C1257E8B00326AF4">
+<created><datetime dst="true">20150723T111041,80+02</datetime></created>
+<modified><datetime dst="true">20150723T111135,04+02</datetime></modified>
+<revised><datetime dst="true">20150723T111135,03+02</datetime></revised>
+<lastaccessed><datetime dst="true">20150723T111135,04+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20150723T111041,81+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Demo Administrator/O=demo</name></updatedby>
+<wassignedby><name>CN=Demo Administrator/O=demo</name></wassignedby>
+<item name="$Flags"><text>34567Cg~[</text></item>
+
+
+
+<item name="$TITLE"><text>com/gw/dao/BaseDominoDAO.java</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>com/gw/dao/BaseDominoDAO.java</text></item></note>

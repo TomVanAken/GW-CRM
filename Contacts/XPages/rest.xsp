@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xe="http://www.ibm.com/xsp/coreex">
+	
+
+	<xe:restService id="restService1" pathInfo="/accounts">
+		<xe:this.service>
+			<xe:customRestService requestContentType="application/json"
+				contentType="application/json"
+				serviceBean="com.gw.application.rest.RestAccount">
+			</xe:customRestService>
+		</xe:this.service>
+	</xe:restService>
+</xp:view>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257E8A004A82BF" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="2ba" sequence="6" unid="F1F1D8CD7DD62DE9C1257E8B004814C6">
+<created><datetime dst="true">20150723T150719,10+02</datetime></created>
+<modified><datetime dst="true">20150723T153035,16+02</datetime></modified>
+<revised><datetime dst="true">20150723T153035,15+02</datetime></revised>
+<lastaccessed><datetime dst="true">20150723T153035,16+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20150723T150719,11+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Demo Administrator/O=demo</name></updatedby>
+<wassignedby><name>CN=Demo Administrator/O=demo</name></wassignedby>
+<item name="$Flags"><text>34567Cg~[</text></item>
+<item name="$TITLE"><text>com/gw/application/dao/IAccountDAO.java</text></item>
+
+
+
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>com/gw/application/dao/IAccountDAO.java</text></item></note>

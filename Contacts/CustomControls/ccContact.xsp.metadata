@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257E7B003C4BE5" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="11e2" sequence="115" unid="52DCDFEB43554CBBC1257E7D006C58A7">
-<created><datetime dst="true">20150709T214325,83+02</datetime></created>
-<modified><datetime dst="true">20150713T145305,91+02</datetime></modified>
-<revised><datetime dst="true">20150713T145305,90+02</datetime></revised>
-<lastaccessed><datetime dst="true">20150713T145305,91+02</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20150709T214325,84+02</datetime></addedtofile></noteinfo>
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257E8A004A82BF" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="1c2" sequence="10" unid="12E02B745B1728BEC1257E8A004B4335">
+<created><datetime dst="true">20150722T154204,05+02</datetime></created>
+<modified><datetime dst="true">20150723T153222,11+02</datetime></modified>
+<revised><datetime dst="true">20150723T153222,10+02</datetime></revised>
+<lastaccessed><datetime dst="true">20150723T153222,11+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20150722T154204,30+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Demo Administrator/O=demo</name></updatedby>
 <wassignedby><name>CN=Demo Administrator/O=demo</name></wassignedby>
 <item name="$Flags"><text>gC~4;</text></item>
 <item name="$TITLE"><text>ccContact.xsp</text></item>
+<item name="$DesignerVersion"><text>8.5.2</text></item>
+
+
+
 
 
 
 
 
 <item name="$FileNames" sign="true"><text>ccContact.xsp</text></item>
-<item name="$DesignerVersion"><text>8.5.2</text></item>
-
-
-
 
 </note>

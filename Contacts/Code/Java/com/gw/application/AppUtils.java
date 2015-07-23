@@ -1,5 +1,6 @@
 package com.gw.application;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Vector;
@@ -28,10 +29,11 @@ public class AppUtils {
 	 * @return true if one of the following conditions apply:
 	 * 	- user is editor or above on the document database
 	 *  - user is at least author and
-	 *  --- has a role contained in the docAuthors field
-	 *  --- is member of the docAuthors field
-	 *  --- is in a group mentioned in the docAuthors field
+	 *  --- has a role contained in one of the Authors fields
+	 *  --- is member in one of the Authors fields
+	 *  --- is member in one of the Authors fields
 	 */
+	
 	public static boolean isAuthor(Document doc) {
 		try {
 			oLog.logDebug(doc.toString());
@@ -45,8 +47,18 @@ public class AppUtils {
 			
 			//User has no author access
 			if(userAccess < ACL.LEVEL_AUTHOR) return false;
-			List<String> authors = doc.getItemValues("docAuthors", String.class);
-			oLog.logDebug(authors);						
+			
+			//Get values of all Authors fields on the document
+			List<String> authors = new ArrayList<String>();
+			for(Item item:doc.getItems()) {
+				if(item.isAuthors()) {
+					@SuppressWarnings("unchecked")
+					List<String> fieldValues = item.getValues(ArrayList.class);
+					authors.addAll(fieldValues);
+				}
+			}
+			oLog.logDebug(authors);	
+			
 			//User is member of authors field
 			if(authors.contains(userName)) return true;
 			

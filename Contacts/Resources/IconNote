@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note default='true' class='icon' xmlns='http://www.lotus.com/dxl' version='9.0'
- maintenanceversion='1.0' replicaid='C1257E7B003C4BE5'>
-<noteinfo noteid='11a' unid='9CA57011ECBED0E5C1257D9E0032F4DC' sequence='16'>
-<created><datetime>20141128T101634,84+01</datetime></created>
-<modified><datetime dst='true'>20150720T161844,87+02</datetime></modified>
-<revised><datetime dst='true'>20150720T161844,80+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150720T161844,87+02</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20150707T125836,04+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Tom Van Aken/OU=AXEIF/O=AGFA</name><name>CN=BEDEVDSHR01/OU=SERVER/O=DEV</name><name
->CN=Tom Van Aken/OU=AXEIF/O=AGFA</name><name>CN=Demo Administrator/O=demo</name></updatedby>
+ maintenanceversion='1.0' replicaid='C1257E8A004A82BF'>
+<noteinfo noteid='11a' unid='FCACEC8CE82BAF9FC1257E8A004A82C4' sequence='15'>
+<created><datetime dst='true'>20150722T153351,40+02</datetime></created>
+<modified><datetime dst='true'>20150723T150917,07+02</datetime></modified>
+<revised><datetime dst='true'>20150723T150917,06+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20150723T150917,07+02</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20150722T153351,43+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Demo Administrator/O=demo</name></updatedby>
+<wassignedby><name>CN=Demo Administrator/O=demo</name></wassignedby>
 <item name='IconBitmap' summary='true'>
 <rawitemdata type='6'>
 AiAgAQAA///////wD///4Af//8AD//4AAH/8AAA/+AAAH/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAA
@@ -30,10 +30,11 @@ AAAAUEECICABAAD/////+A4DgA==
 <item name='$TemplateServerName'><text>CN=BEDEVDSHR01/OU=SERVER/O=DEV</text></item>
 <item name='$TemplateFileName'><text>D:\Lotus\Domino\data\Agfa\AdvuPlus\dashboard.nsf</text></item>
 <item name='$Daos'><text>0</text></item>
-<item name='$TITLE'><text>Contacts</text></item>
 <item name='$DefaultXPage'><text>accounts.xsp</text></item>
 <item name='$Flags'><text>J7F!</text></item>
 <item name='$LaunchXPageRunOnServer'><text>0</text></item>
 <item name='$FlagsNoRefresh'><text/></item>
-<item name='$AllowRESTDbAPI'><number>2</number></item></note>
+<item name='$AllowRESTDbAPI'><number>2</number></item>
+<item name='$TITLE'><text>Contacts MVC
+</text></item></note>
 
